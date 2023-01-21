@@ -1,0 +1,21 @@
+---
+
+# playbook.yml
+
+- name: Run deploy stack and apps
+  hosts: test-deploy-servers
+  remote_user: user
+  become: true
+
+  roles:
+    - role: ansible-docker
+      vars:
+        docker__edition: "ce"
+        docker__channel: ["stable"]
+        docker__version: "20.10.22"
+        docker__state: "present"
+        docker__compose_v2_version: ""
+        docker__users: ["user"]
+      tags: docker-install
+    - role: ansible-deploy-apps
+      tags: apps-install

@@ -1,0 +1,16 @@
+---
+
+- name: Copy images to server
+  copy:
+    src: roles/ansible-deploy-apps/packages/kubia.tar
+    dest: /home/user
+
+- name: Docker image load
+  shell: docker load < kubia.tar
+  args:
+    executable: /bin/bash
+
+- name: Docker run container
+  shell: docker run --name kubia-container -p 8080:8080 -d vldanch/kubia
+  args:
+    executable: /bin/bash
