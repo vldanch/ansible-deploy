@@ -13,7 +13,7 @@
       vars:
         docker__edition: "ce"
         docker__channel: ["stable"]
-        docker__version: "20.10.22"
+        docker__version: "20.10.23"
         docker__state: "present"
         docker__compose_v2_version: ""
         docker__users: ["user"]
