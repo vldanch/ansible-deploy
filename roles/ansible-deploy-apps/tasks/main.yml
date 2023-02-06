@@ -4,6 +4,8 @@
   copy:
     src: roles/ansible-deploy-apps/packages/kubia.tar
     dest: /home/user
+    owner: user
+    mode: 0644
 
 - name: Docker image load
   shell: docker load < kubia.tar
